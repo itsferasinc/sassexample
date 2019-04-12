@@ -9,4 +9,7 @@
 	},
 	"author": "",
 	"license": "ISC",
-	"devDepe
+	"devDependencies": {
+		"node-sass": "^4.11.0"
+	}
+}
