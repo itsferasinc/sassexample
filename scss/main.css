@@ -34,25 +34,6 @@ img {
   margin: auto;
   overflow: hidden; }
 
-.btnMain, .btnLight, .btnDark {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  transition: all 0.5s;
-  border: none;
-  cursor: pointer; }
-
-.btnMain {
-  color: #333;
-  background-color: #ffbc00; }
-
-.btnLight {
-  color: #333;
-  background-color: #f4f4f4; }
-
-.btnDark {
-  color: #f4f4f4;
-  background-color: #333; }
-
 /*=============================================
 =            logo            =
 =============================================*/
@@ -82,8 +63,6 @@ img {
         transition: border-color 0.5s; }
         .mainNav ul li a:hover {
           border-color: #ccc; }
-        .mainNav ul li a.active {
-          border-color: #ffbc00; }
 
 /*=============================================
 =            header            =
@@ -92,12 +71,7 @@ img {
   background: url("../img/showcase.jpg") no-repeat center right/cover;
   height: 100vh;
   color: #fff; }
-  .headerHome .headerContent {
-    text-align: center;
-    padding-top: 20%; }
-    .headerHome .headerContent h1 {
-      font-size: 4rem;
-      line-height: 1.2; }
-
 .headerInner {
   background: url("../img/showcase.jpg") no-repeat center right/cover; }
+
+/*# sourceMappingURL=main.css.map */

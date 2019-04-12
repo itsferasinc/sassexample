@@ -1,3 +1,141 @@
+@import "config.scss";
+@import "utilities.scss";
+
+$websiteWidth: 1280px;
+$mainColor: #ffbc00;
+$lightColor: #f4f4f4;
+$darkColor: #333;
+$mediumColor: #ccc;
+$bgImage: url("../img/showcase.jpg");
+
+/*=============================================
+=            BASIC            =
+=============================================*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-family: "Dosis", sans-serif;
+	line-height: 1.6;
+	background: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: $darkColor;
+}
+ul {
+	list-style: none;
+}
+h2,
+h3,
+h4 {
+	text-transform: uppercase;
+}
+img {
+	width: 100%;
+}
+
+/*=============================================
+=            Utilities            =
+=============================================*/
+.container {
+	max-width: $websiteWidth;
+	padding: 0 1.5rem;
+	margin: auto;
+	overflow: hidden;
+}
+%btnShared {
+	display: inline-block;
+	padding: 0.8rem 2rem;
+	transition: all 0.5s;
+	border: none;
+	cursor: pointer;
+}
+.btn {
+	&Main {
+		@extend %btnShared;
+		color: #333;
+		background-color: $mainColor;
+	}
+	&Light {
+		@extend %btnShared;
+		color: #333;
+		background-color: $lightColor;
+	}
+	&Dark {
+		@extend %btnShared;
+		color: #f4f4f4;
+		background-color: $darkColor;
+	}
+}
+/*=============================================
+=            logo            =
+=============================================*/
+
+.logo {
+	width: 70px;
+	height: 70px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+/*=============================================
+=            main nav            =
+=============================================*/
+.mainNav {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 1rem;
+
+	ul {
+		display: flex;
+
+		li {
+			padding: 1rem 1.5rem;
+
+			a {
+				color: #fff;
+				text-decoration: none;
+				text-transform: uppercase;
+				border-bottom: 3px transparent solid;
+				padding-bottom: 0.5rem;
+				transition: border-color 0.5s;
+
+				&:hover {
+					border-color: $mediumColor;
+				}
+				&.active {
+					border-color: $mainColor;
+				}
+			}
+		}
+	}
+}
+
+/*=============================================
+=            header            =
+=============================================*/
+.header {
+	&Home {
+		background: $bgImage no-repeat center right/cover;
+		height: 100vh;
+		color: #fff;
+
+		.headerContent {
+			text-align: center;
+			padding-top: 20%;
+
+			h1 {
+				font-size: 4rem;
+				line-height: 1.2;
+			}
+		}
+	}
+	&Inner {
+		background: $bgImage no-repeat center right/cover;
+	}
 }
