@@ -1,0 +1,134 @@
+@media (max-width: 800px) {
+	.headerHome {
+		height: 30rem;
+
+		.headerContent {
+			padding-top: 5rem;
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.mainNav {
+		flex-direction: column;
+		align-items: center;
+
+		li {
+			padding: 1rem;
+		}
+	}
+	.header {
+		&Home {
+			height: 10rem;
+			border-bottom: 3px solid $mainColor;
+			background-position: 20% 30%;
+
+			.headerContent {
+				display: none;
+			}
+		}
+		&Inner {
+			height: 10rem;
+		}
+	}
+
+	.homeA .specials,
+	.homeB .stats,
+	.homeC .process,
+	.aboutD .testimonials,
+	.contactB .contactInfo,
+	.items {
+		grid-template-columns: 1fr;
+	}
+	.home {
+		&A {
+			.specials div {
+				border-bottom: 1px $lightColor solid;
+				padding-bottom: 1rem;
+				&:last-child {
+					border: 0;
+					padding-bottom: 0;
+				}
+			}
+		}
+		&B {
+			.stats div {
+				padding: 2rem 0 1rem 0;
+			}
+		}
+	}
+
+	.about {
+		&A {
+			.aboutInfo {
+				grid-template-areas:
+					"bioImage"
+					"bioText"
+					"award1"
+					"award2"
+					"award3";
+			}
+		}
+		&C {
+			display: none;
+		}
+	}
+
+	.mainFooter {
+		height: 7rem;
+		.footerContent {
+			flex-direction: column;
+			padding: 1rem;
+			height: 5rem;
+		}
+	}
+
+	.contact {
+		&A {
+			.textFields {
+				grid-template-areas:
+					"name"
+					"subject"
+					"email"
+					"phone"
+					"message";
+			}
+		}
+		&B {
+			.contactInfo > div {
+				margin-bottom: 1rem;
+				padding-bottom: 1rem;
+				border-bottom: 1px solid #555;
+
+				&:last-child {
+					margin-bottom: 0;
+					padding-bottom: 0;
+					border-bottom: 0;
+				}
+			}
+		}
+		&C {
+			h1 {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+/* LANDSCAPE */
+@media (max-height: 580px) {
+	.headerHome {
+		.headerContent {
+			padding-top: 3rem;
+		}
+	}
+}
+@media (max-height: 330px) {
+	.headerHome {
+		.headerContent {
+			h1 {
+				font-size: 2rem;
+			}
+		}
+	}
+}

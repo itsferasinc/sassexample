@@ -1,12 +1,22 @@
-@import "config.scss";
-@import "utilities.scss";
-
+@import "_config.scss";
 $websiteWidth: 1280px;
 $mainColor: #ffbc00;
 $lightColor: #f4f4f4;
 $darkColor: #333;
 $mediumColor: #ccc;
 $bgImage: url("../img/showcase.jpg");
+
+@import "_utilities.scss";
+
+@import "_itemGrid.scss";
+
+@function setTextColor($color) {
+	@if (lightness($color) > 50) {
+		@return #000;
+	} @else {
+		@return #fff;
+	}
+}
 
 /*=============================================
 =            BASIC            =
@@ -16,7 +26,6 @@ $bgImage: url("../img/showcase.jpg");
 	margin: 0;
 	padding: 0;
 }
-
 body {
 	font-family: "Dosis", sans-serif;
 	line-height: 1.6;
@@ -72,6 +81,80 @@ img {
 		background-color: $darkColor;
 	}
 }
+button[class^="btn"]:hover,
+a[class^="btn"]:hover,
+input[class^="btn"]:hover {
+	background-color: $mainColor;
+}
+.lead {
+	font-size: 1.3rem;
+	margin-bottom: 2rem;
+}
+.textCenter {
+	text-align: center;
+}
+.bottomLine {
+	height: 2px;
+	width: 3rem;
+	background: $mainColor;
+	display: block;
+	margin: 0 auto 1rem auto;
+}
+.sectionTitle {
+	font-size: 2rem;
+	display: block;
+	padding-bottom: 0.5rem;
+	text-align: center;
+	font-weight: 100;
+	text-transform: uppercase;
+}
+.bg {
+	&Main {
+		background: $mainColor;
+		color: setTextColor($mainColor);
+	}
+	&Dark {
+		background: $darkColor;
+		color: setTextColor($darkColor);
+	}
+	&Light {
+		background: $lightColor;
+		color: setTextColor($lightColor);
+	}
+	&Medium {
+		background: $mediumColor;
+		color: setTextColor($mediumColor);
+	}
+}
+.py {
+	&1 {
+		padding: 1rem 0;
+	}
+	&2 {
+		padding: 2rem 0;
+	}
+	&3 {
+		padding: 3rem 0;
+	}
+	&4 {
+		padding: 4rem 0;
+	}
+}
+.my {
+	&1 {
+		margin: 1rem 0;
+	}
+	&2 {
+		margin: 2rem 0;
+	}
+	&3 {
+		margin: 3rem 0;
+	}
+	&4 {
+		margin: 4rem 0;
+	}
+}
+
 /*=============================================
 =            logo            =
 =============================================*/
@@ -136,6 +219,289 @@ img {
 		}
 	}
 	&Inner {
-		background: $bgImage no-repeat center right/cover;
+		background: $bgImage no-repeat 20% 30% / cover;
+		height: 5.5rem;
+		border-bottom: 3px solid $mainColor;
 	}
 }
+
+/*=============================================
+=            Home sections            =
+=============================================*/
+.home {
+	&A {
+		.specials {
+			margin-top: 3rem;
+			display: grid;
+			grid-gap: 1rem;
+			grid-template-columns: repeat(4, 1fr);
+
+			.fas {
+				color: $mainColor;
+				padding-bottom: 0.4rem;
+			}
+		}
+	}
+	&B {
+		.stats {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+
+			div {
+				padding: 3rem;
+				&:nth-child(odd) {
+					background: $lightColor;
+				}
+				&:nth-child(even) {
+					background: $mediumColor;
+				}
+			}
+
+			li {
+				line-height: 2;
+
+				&.statsTitle {
+					font-size: 1.5rem;
+				}
+				&.statsNumber {
+					font-size: 2rem;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	&C {
+		.process {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 1.5rem;
+			text-align: center;
+
+			&Step {
+				position: absolute;
+				top: 0;
+				right: 0;
+				font-size: 28px;
+				background: $mainColor;
+				color: setTextColor($mainColor);
+				border-radius: 50%;
+				height: 15px;
+				width: 15px;
+				line-height: 15px;
+				padding: 1rem;
+				transition: all 1s;
+			}
+			&Icon {
+				border-radius: 50%;
+				background: $darkColor;
+				color: setTextColor($darkColor);
+				padding: 2rem;
+				width: 70px;
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+				position: relative;
+				transition: all 1s;
+
+				&:hover {
+					background: $mainColor;
+					// width: 90px;
+					// height: 90px;
+					// line-height: 90px;
+					transform: scale(1.2);
+
+					.processStep {
+						background: $darkColor;
+						color: setTextColor($darkColor);
+					}
+				}
+			}
+		}
+	}
+}
+
+/*=============================================
+=            ABOUT            =
+=============================================*/
+
+.about {
+	&A {
+		.aboutInfo {
+			display: grid;
+			grid-template-areas:
+				"bioImage bioText bioText"
+				"award1 award2 award3";
+			grid-gap: 1.2rem;
+		}
+		.bioImage {
+			grid-area: bioImage;
+		}
+		.bioText {
+			grid-area: bioText;
+			border-left: 3px solid $mainColor;
+			padding: 0.8rem;
+		}
+		.award1 {
+			grid-area: award1;
+		}
+		.award2 {
+			grid-area: award2;
+		}
+		.award3 {
+			grid-area: award3;
+		}
+		.award1 .fas,
+		.award2 .fas,
+		.award3 .fas {
+			color: $mainColor;
+			margin: 1rem;
+		}
+	}
+	&B {
+		.progress {
+			overflow: hidden;
+			height: 20px;
+			background: $mediumColor;
+			border-radius: 5px;
+			margin-bottom: 0.6rem;
+
+			div {
+				height: 100%;
+				color: #fff;
+				text-align: center;
+				background: $mainColor;
+			}
+		}
+	}
+	&C {
+		.aboutLogos {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 2rem;
+
+			img {
+				width: 70%;
+			}
+		}
+	}
+	&D {
+		.testimonials {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 0.5rem;
+
+			ul {
+				list-style: none;
+				margin-top: 1rem;
+				display: flex;
+				align-items: center;
+			}
+			p {
+				border: 1px solid $mediumColor;
+				border-radius: 5px;
+				padding: 0.5rem;
+			}
+			img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				margin-right: 0.5rem;
+			}
+		}
+	}
+}
+
+/*=============================================
+=            CONTACT            =
+=============================================*/
+
+.contact {
+	&A {
+		.textFields {
+			.emailInput {
+				grid-area: "email";
+			}
+			.subjectInput {
+				grid-area: "subject";
+			}
+			.nameInput {
+				grid-area: "name";
+			}
+			.phoneInput {
+				grid-area: "phone";
+			}
+			.messageInput {
+				grid-area: "message";
+				height: 100px;
+			}
+
+			display: grid;
+			grid-template-areas:
+				"name email"
+				"subject phone"
+				"message";
+			grid-gap: 1.2rem;
+			margin-bottom: 1.2rem;
+
+			.textInput {
+				padding: 0.5rem 1rem;
+			}
+		}
+		button[type="submit"] {
+			width: 50%;
+		}
+	}
+	&B {
+		.contactInfo {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			text-align: center;
+		}
+	}
+	&C {
+		h1 {
+			text-align: center;
+			font-size: 4rem;
+		}
+	}
+}
+
+/*=============================================
+=            FOOTER            =
+=============================================*/
+
+.mainFooter {
+	background: $darkColor;
+	color: #fff;
+	height: 5rem;
+	.footerContent {
+		display: flex;
+		justify-content: space-between;
+		height: 4rem;
+		align-items: center;
+
+		.social .fab {
+			margin-right: 1rem;
+			border: 2px #fff solid;
+			border-radius: 50%;
+			height: 20px;
+			width: 20px;
+			line-height: 20px;
+			text-align: center;
+			padding: 0.5rem;
+			cursor: pointer;
+
+			&:hover {
+				background: $mainColor;
+			}
+		}
+	}
+}
+
+/**
+ *
+ * MEDIA QUERIES
+ *
+ */
+
+@import "_media.scss";
