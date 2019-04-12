@@ -61,5 +61,5 @@ function init() {
 	const words = JSON.parse(txtElement.getAttribute("data-words"));
 	const wait = txtElement.getAttribute("data-wait");
 	// Init TypeWriter
-	//new TypeWriter(txtElement, words, wait);
+	new TypeWriter(txtElement, words, wait);
 }
